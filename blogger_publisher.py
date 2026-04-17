@@ -46,7 +46,7 @@ from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/blogger']
-BLOG_ID = 'YOUR_BLOG_ID_HERE'  # Replace with your actual Blog ID
+BLOG_ID = '1971851120064758158'  # Replace with your actual Blog ID
 
 def get_authenticated_service():
     """Authenticates the user via OAuth2 and returns the Blogger API service."""
