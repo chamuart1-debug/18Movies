@@ -6,17 +6,33 @@ const movies = [
         rating: "5.5",
         img: "https://film-adult.com/uploads/posts/2026-04/thumbs/maison-close.webp",
         category: "Action",
-        adult: true,
         duration: "02:42:18",
-        casting: "Charlie Forde, Lulu Chu, Nathan Bronson",
+        casting: "Charlie Forde, Lulu Chu",
         description: "Eliza and Nathan maintain a relationship that is both sexually intense and very particular in its structure.",
-        // Base64 Encoded Links
         server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2Uvb21hNDE2a3A3cXU0", 
-        server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy"
+        server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy",
+        telegramLink: "https://t.me/your_channel",
+        showPlayer: true,  // ප්ලේයර් එක පෙන්වන්න
+        showTelegram: true // ටෙලිග්‍රෑම් බටන් එක පෙන්වන්න
+    },
+    {
+        id: "interstellar",
+        title: "Interstellar",
+        rating: "8.7",
+        img: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+        category: "Sci-Fi",
+        duration: "02:49:00",
+        casting: "Matthew McConaughey",
+        description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        server1: "aHR0cHM6Ly9leGFtcGxlLmNvbS8x",
+        server2: "aHR0cHM6Ly9leGFtcGxlLmNvbS8y",
+        telegramLink: "https://t.me/your_channel",
+        showPlayer: true,
+        showTelegram: false
     }
 ];
 
-// --- 2. Home Page Logic ---
+// --- 2. Search & Filter Logic ---
 function displayMovies(data) {
     const grid = document.getElementById('movieGrid');
     if(!grid) return;
@@ -29,118 +45,151 @@ function displayMovies(data) {
     `).join('');
 }
 
-// --- 3. Details Page Logic (Modern UI) ---
+function searchMovies() {
+    const term = document.getElementById('searchInput').value.toLowerCase();
+    const suggestions = document.getElementById('suggestions');
+    
+    if (term.length < 1) {
+        suggestions.style.display = 'none';
+        return;
+    }
+
+    const filtered = movies.filter(m => m.title.toLowerCase().includes(term));
+    
+    if (filtered.length > 0) {
+        suggestions.style.display = 'block';
+        suggestions.innerHTML = filtered.map(m => `
+            <div class="suggestion-item" onclick="window.location.href='details.html?id=${m.id}'">
+                <img src="${m.img}" width="40">
+                <span>${m.title}</span>
+            </div>
+        `).join('');
+    } else {
+        suggestions.style.display = 'none';
+    }
+}
+
+function filterMovies(cat) {
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    const filtered = cat === 'All' ? movies : movies.filter(m => m.category === cat);
+    displayMovies(filtered);
+}
+
+// --- 3. Details Page Logic ---
+let adClicked = { server1: false, server2: false, telegram: false, playBtn: false };
+
 function loadMovieDetails() {
     const params = new URLSearchParams(window.location.search);
     const movieId = params.get('id');
     const m = movies.find(movie => movie.id === movieId);
     const container = document.getElementById('detailsContainer');
 
-    if (!container) return;
+    if (!container || !m) return;
 
-    if (m) {
-        container.innerHTML = `
-            <div class="movie-post-wrapper">
-                <div class="glass-card main-card">
-                    <div class="movie-content">
-                        <div class="poster-container">
-                            <img src="${m.img}" class="movie-poster">
-                            <div class="quality-badge">4K HDR</div>
-                        </div>
-                        
-                        <div class="info-sec">
-                            <div class="title-header">
-                                <h1>${m.title}</h1>
-                                ${m.adult ? '<span class="adult-tag">🔞 18+</span>' : ''}
-                            </div>
-                            
-                            <div class="meta-highlight-box">
-                                <div class="meta-item"><i class="fas fa-clock"></i> <strong>Duration:</strong> <span>${m.duration}</span></div>
-                                <div class="meta-item"><i class="fas fa-star"></i> <strong>Rating:</strong> <span class="rating-val">${m.rating}</span></div>
-                                <div class="meta-item"><i class="fas fa-users"></i> <strong>Casting:</strong> <span>${m.casting}</span></div>
-                            </div>
-
-                            <div class="story-box">
-                                <h3><i class="fas fa-book-open"></i> Story Line</h3>
-                                <p>${m.description}</p>
-                            </div>
-                        </div>
+    container.innerHTML = `
+        <div class="movie-post-wrapper fade-in">
+            <div class="glass-card">
+                <div class="movie-content">
+                    <div class="poster-container">
+                        <img src="${m.img}" class="movie-poster">
                     </div>
-
-                    <div class="player-section">
-                        <div class="player-header">
-                            <p>Select Server to Stream</p>
-                            <div class="indicator"><span></span><span></span><span></span></div>
+                    <div class="info-sec">
+                        <h1>${m.title}</h1>
+                        <div class="cat-tags">
+                            <span class="clickable-cat" onclick="window.location.href='index.html?cat=${m.category}'">${m.category}</span>
                         </div>
-
-                        <div class="modern-player" id="playerArea">
-                            <!-- Start Play Button -->
-                            <div id="playOverlay" class="play-overlay">
-                                <button class="glow-play-btn" onclick="startStream()">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <p>Click to Play</p>
-                            </div>
-
-                            <!-- Server Selection (Hidden initially) -->
-                            <div id="serverStep" class="server-step" style="display:none;">
-                                <button class="srv-btn" onclick="playEncoded('${m.server1}')"><i class="fas fa-server"></i> Server 1</button>
-                                <button class="srv-btn" onclick="playEncoded('${m.server2}')"><i class="fas fa-server"></i> Server 2</button>
-                            </div>
-
-                            <!-- Video Frame -->
-                            <div id="videoContainer" class="video-container" style="display:none;"></div>
+                        <div class="meta-highlight-box">
+                            <p><i class="fas fa-clock"></i> <b>Duration:</b> ${m.duration}</p>
+                            <p><i class="fas fa-star"></i> <b>Rating:</b> ${m.rating}</p>
+                            <p><i class="fas fa-users"></i> <b>Casting:</b> ${m.casting}</p>
+                        </div>
+                        <div class="story-box">
+                            <p>${m.description}</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Action Section -->
+                <div class="player-section">
+                    ${m.showPlayer ? `
+                        <div class="watch-hint">
+                            <p>Watch Video Below</p>
+                            <i class="fas fa-chevron-down animated-arrow"></i>
+                        </div>
+                        <div class="modern-player" id="playerArea">
+                            <div id="playOverlay" class="play-overlay">
+                                <button class="glow-play-btn" onclick="handlePlayClick()">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                            <div id="serverStep" style="display:none;" class="server-step">
+                                <button id="btn-srv1" class="srv-btn" onclick="handleServer('server1', '${m.server1}')">Server 1</button>
+                                <button id="btn-srv2" class="srv-btn" onclick="handleServer('server2', '${m.server2}')">Server 2</button>
+                            </div>
+                            <div id="videoContainer" style="display:none;" class="video-container"></div>
+                        </div>
+                    ` : ''}
+
+                    ${m.showTelegram ? `
+                        <div class="tg-section">
+                            <button id="tg-btn" class="telegram-btn" onclick="handleTelegram('${m.telegramLink}')">
+                                <i class="fab fa-telegram"></i> Download via Telegram
+                            </button>
+                        </div>
+                    ` : ''}
+                </div>
             </div>
-        `;
-    }
-}
-
-function loadRelatedMovies(currentCategory, currentId) {
-    const related = movies.filter(m => m.category === currentCategory && m.id !== currentId).slice(0, 4);
-    if (related.length === 0) return "";
-
-    return `
-        <div class="related-section">
-            <h2 style="margin: 20px 0;">You Might Also Like</h2>
-            <div class="movie-grid">
-                ${related.map(m => `
-                    <div class="movie-card" onclick="window.location.href='details.html?id=${m.id}'">
-                        <div class="rating"><i class="fas fa-star"></i> ${m.rating}</div>
-                        <img src="${m.img}">
-                        <div class="movie-info">${m.title}</div>
-                    </div>
-                `).join('')}
+            
+            <!-- Related Movies -->
+            <div class="related-section">
+                <h2 class="section-title">You Might Also Like</h2>
+                <div class="movie-grid">
+                    ${movies.filter(item => item.category === m.category && item.id !== m.id).slice(0, 10).map(r => `
+                        <div class="movie-card" onclick="window.location.href='details.html?id=${r.id}'">
+                            <img src="${r.img}">
+                            <div class="movie-info">${r.title}</div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
         </div>
     `;
 }
 
-// loadMovieDetails function එකේ container.innerHTML අගට මේක එකතු කරන්න:
-// container.innerHTML += loadRelatedMovies(m.category, m.id);
+// --- 4. Ad Logic & Interactions ---
+const AD_URL = "https://omg10.com/4/9975772";
 
-// --- 4. Decoding & Streaming Logic ---
-function startStream() {
-    window.open("https://omg10.com/4/9975772", "_blank"); // Ad Link
-    document.getElementById('playOverlay').style.display = 'none';
-    document.getElementById('serverStep').style.display = 'flex';
+function handlePlayClick() {
+    if (!adClicked.playBtn) {
+        window.open(AD_URL, "_blank");
+        adClicked.playBtn = true;
+    } else {
+        document.getElementById('playOverlay').style.display = 'none';
+        document.getElementById('serverStep').style.display = 'flex';
+    }
 }
 
-function playEncoded(encodedUrl) {
-    // Base64 Decode මෙතන සිදුවේ
-    const decodedUrl = atob(encodedUrl);
-    
-    const serverStep = document.getElementById('serverStep');
-    const videoContainer = document.getElementById('videoContainer');
-    const playerArea = document.getElementById('playerArea');
+function handleServer(srvKey, encodedUrl) {
+    if (!adClicked[srvKey]) {
+        window.open(AD_URL, "_blank");
+        adClicked[srvKey] = true;
+        document.getElementById(`btn-${srvKey}`).classList.add('clicked');
+    } else {
+        const decodedUrl = atob(encodedUrl);
+        const videoContainer = document.getElementById('videoContainer');
+        document.getElementById('serverStep').style.display = 'none';
+        videoContainer.style.display = 'block';
+        videoContainer.innerHTML = `<iframe src="${decodedUrl}" frameborder="0" allowfullscreen></iframe>`;
+    }
+}
 
-    serverStep.style.display = 'none';
-    playerArea.style.background = '#000';
-    videoContainer.style.display = 'block';
-    
-    videoContainer.innerHTML = `
-        <iframe src="${decodedUrl}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    `;
+function handleTelegram(link) {
+    if (!adClicked.telegram) {
+        window.open(AD_URL, "_blank");
+        adClicked.telegram = true;
+        document.getElementById('tg-btn').classList.add('clicked');
+    } else {
+        window.location.href = link;
+    }
 }
