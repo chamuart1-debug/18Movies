@@ -1,5 +1,4 @@
 // --- 1. Movies Database ---
-// ඔබට අවශ්‍ය තරම් ෆිල්ම් මෙහි ඇතුළත් කරන්න.
 const movies = [
     {
         id: "maison-close",
@@ -35,28 +34,34 @@ const movies = [
         showTelegram: false,
         dateAdded: "2024-03-21"
     }
-    // තව ෆිල්ම් මෙතනට එකතු කරන්න...
 ];
 
 // --- 2. Navigation & Search Logic ---
 function toggleSearch() {
     const searchBar = document.getElementById('searchBar');
+    if (!searchBar) return;
     searchBar.classList.toggle('active');
     if(searchBar.classList.contains('active')) {
-        document.getElementById('searchInput').focus();
+        const input = document.getElementById('searchInput');
+        if (input) input.focus();
     }
 }
 
 function searchMovies() {
     const term = document.getElementById('searchInput').value.toLowerCase();
     const suggestions = document.getElementById('suggestions');
-    if (term.length < 1) { suggestions.style.display = 'none'; return; }
+    if (!suggestions) return;
+    
+    if (term.length < 1) { 
+        suggestions.style.display = 'none'; 
+        return; 
+    }
 
     const filtered = movies.filter(m => m.title.toLowerCase().includes(term));
     suggestions.style.display = filtered.length ? 'block' : 'none';
     suggestions.innerHTML = filtered.map(m => `
         <div class="suggestion-item" onclick="window.location.href='details.html?id=${m.id}'">
-            <img src="${m.img}" width="30">
+            <img src="${m.img}" width="30" height="40" style="object-fit:cover;">
             <span>${m.title}</span>
         </div>
     `).join('');
@@ -73,7 +78,7 @@ function renderHome() {
     const latest = [...movies].reverse().slice(0, 20);
     html += renderSection("RECENTLY ADDED", latest, "All");
 
-    // B. Group by Categories (ස්වයංක්‍රීයව කැටගරි වෙන් කිරීම)
+    // B. Group by Categories
     const categories = [...new Set(movies.map(m => m.category))];
     categories.forEach(cat => {
         const catMovies = movies.filter(m => m.category === cat).slice(0, 20);
@@ -86,15 +91,13 @@ function renderHome() {
 function renderSection(title, data, catName) {
     return `
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">${title}</h2>
-            </div>
+            <h2 class="section-title">${title}</h2>
             <div class="movie-grid">
                 ${data.map(m => `
                     <div class="movie-card" onclick="window.location.href='details.html?id=${m.id}'">
                         <div class="quality-badge">${m.quality}</div>
                         <div class="rating"><i class="fas fa-star"></i> ${m.rating}</div>
-                        <img src="${m.img}">
+                        <img src="${m.img}" loading="lazy">
                         <div class="movie-info">${m.title}</div>
                     </div>
                 `).join('')}
@@ -106,29 +109,34 @@ function renderSection(title, data, catName) {
 
 function viewAll(cat) {
     const grid = document.getElementById('homeContent');
+    if (!grid) return;
     const filtered = cat === 'All' ? movies : movies.filter(m => m.category === cat);
     grid.innerHTML = `
         <div class="section-container">
             <h2 class="section-title">Showing: ${cat}</h2>
-            <div class="movie-grid">${filtered.map(m => `
-                <div class="movie-card" onclick="window.location.href='details.html?id=${m.id}'">
-                    <div class="quality-badge">${m.quality}</div>
-                    <div class="rating"><i class="fas fa-star"></i> ${m.rating}</div>
-                    <img src="${m.img}">
-                    <div class="movie-info">${m.title}</div>
-                </div>
-            `).join('')}</div>
-            <button class="view-all-btn" onclick="location.reload()">BACK TO HOME</button>
+            <div class="movie-grid">
+                ${filtered.map(m => `
+                    <div class="movie-card" onclick="window.location.href='details.html?id=${m.id}'">
+                        <div class="quality-badge">${m.quality}</div>
+                        <div class="rating"><i class="fas fa-star"></i> ${m.rating}</div>
+                        <img src="${m.img}">
+                        <div class="movie-info">${m.title}</div>
+                    </div>
+                `).join('')}
+            </div>
+            <button class="view-all-btn" onclick="window.location.reload()">BACK TO HOME</button>
         </div>
     `;
+    window.scrollTo(0,0);
 }
 
 // --- 4. Details Page & Fake Player Logic ---
-let adState = 0; // 0: Play, 1: Servers, 2: Final
+let adState = 0; 
 
 function loadMovieDetails() {
     const params = new URLSearchParams(window.location.search);
-    const m = movies.find(movie => movie.id === params.get('id'));
+    const movieId = params.get('id');
+    const m = movies.find(movie => movie.id === movieId);
     const container = document.getElementById('detailsContainer');
     if (!container || !m) return;
 
@@ -142,7 +150,7 @@ function loadMovieDetails() {
                 <div class="info-sec">
                     <h1>${m.title}</h1>
                     <div class="cat-tags">
-                        <span class="glass-cat" onclick="viewAll('${m.category}')">${m.category}</span>
+                        <span class="glass-cat" onclick="window.location.href='index.html?cat=${m.category}'">${m.category}</span>
                     </div>
                     <div class="meta-highlight-box">
                         <p><i class="fas fa-clock"></i> <b>Duration:</b> ${m.duration}</p>
@@ -158,7 +166,6 @@ function loadMovieDetails() {
                     </div>
 
                     <div class="modern-player" id="playerArea">
-                        <!-- Initial Fake Play -->
                         <div id="fakeUI" class="play-overlay">
                             <button class="glow-play-btn" onclick="handleFakePlayer('${m.server1}')">
                                 <i class="fas fa-play"></i>
@@ -169,7 +176,6 @@ function loadMovieDetails() {
                 </div>
             </div>
 
-            <!-- Suggestion 10 Movies -->
             <div class="related-section">
                 <h2 class="section-title">YOU MIGHT ALSO LIKE</h2>
                 <div class="movie-grid">
@@ -191,14 +197,18 @@ function handleFakePlayer(url) {
     if (adState === 0) {
         window.open(AD_URL, "_blank");
         adState = 1;
-        document.querySelector('.glow-play-btn').innerHTML = "<i class='fas fa-server'></i> LOAD SERVERS";
+        const btn = document.querySelector('.glow-play-btn');
+        if(btn) btn.innerHTML = "<i class='fas fa-server'></i> LOAD SERVERS";
     } else if (adState === 1) {
         window.open(AD_URL, "_blank");
         adState = 2;
         const decoded = atob(url);
-        document.getElementById('fakeUI').style.display = 'none';
+        const fakeUI = document.getElementById('fakeUI');
         const v = document.getElementById('realVideo');
-        v.style.display = 'block';
-        v.innerHTML = `<iframe src="${decoded}" frameborder="0" allowfullscreen></iframe>`;
+        if(fakeUI) fakeUI.style.display = 'none';
+        if(v) {
+            v.style.display = 'block';
+            v.innerHTML = `<iframe src="${decoded}" frameborder="0" allowfullscreen></iframe>`;
+        }
     }
 }
