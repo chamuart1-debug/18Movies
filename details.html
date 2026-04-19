@@ -4,33 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch Movie - CineWave</title>
-
-    <!-- 1. FontAwesome Link (Play Button සහ අනෙක් අයිකන් පේන්න මෙය අනිවාර්යයි) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- 2. Google Fonts (වඩාත් ලස්සන පෙනුමක් ලබා ගැනීමට) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <!-- 3. CSS File -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body style="background: #0a0a0b;">
-
-    <!-- Back Button එක වඩාත් ලස්සනට -->
-    <header style="padding: 15px 5%;">
-        <a href="index.html" style="color:var(--accent); text-decoration:none; font-weight:bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-arrow-left"></i> BACK HOME
-        </a>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='index.html'">Cine<span>Wave</span></div>
     </header>
 
-    <!-- මෙතනට තමයි script.js එකෙන් තොරතුරු එවන්නේ -->
     <div id="detailsContainer"></div>
 
-    <!-- 4. Scripts -->
     <script src="script.js"></script>
-    <script>
-        // පේජ් එක ලෝඩ් වෙද්දී URL එකේ තියෙන ID එක අරන් ෆිල්ම් එක පෙන්නනවා
-        window.onload = loadMovieDetails;
-    </script>
+    <script>window.onload = loadMovieDetails;</script>
 </body>
 </html>
