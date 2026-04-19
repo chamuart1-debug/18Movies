@@ -22,22 +22,24 @@ const movies = [
         dateAdded: "2026-04-18"
     },
     {
-        id: "avatar-fire",
-        title: "Avatar: Fire and Ash",
-        rating: "7.4",
-        quality: "WEB",
-        img: "https://m.media-amazon.com/images/M/MV5BMjA3Njg2NjYxM15BMl5BanBnXkFtZTgwMjQyMzU3NzM@._V1_.jpg",
-        category: "Sci-Fi",
-        duration: "03:10:00",
-        casting: "Sam Worthington, Zoe Saldana",
-        description: "The next thrilling chapter in the Avatar saga. Jake Sully and Neytiri discover a new, dangerous tribe on Pandora — one that could change everything they know about their world.",
-        server1: "aHR0cHM6Ly9leGFtcGxlLmNvbS8x",
-        server2: "aHR0cHM6Ly9leGFtcGxlLmNvbS8y",
+        id: "40-years-old-wife",
+        title: "40 years old, My Wife With no Panties (2017)",
+        rating: "7.6",
+        quality: "FHD 1080p",
+        img: "https://film-adult.com/uploads/posts/2019-09/1568362060_40-years-old-my-wife-with-no-panties.webp",
+        category: "Russian Porn",
+        duration: "01:53:22",
+        casting: "Mariska, Rose Valérie, Amber Jayne, Loren Minardi, Rico Simmons",
+        description: "Mariska and Rico form a united couple. But their busy professional life took precedence over the fire and the passion of their young years of marriage. While they go to a dinner at friends home, a simple little oversight will break their habits. Mariska didn’t put on panties. This situation gave rise to Rico's desire to satisfy new exhibitionist and libertine fantasies.",
+        // Server 1: https://hgcloud.to/e/2lydmhci8v6n
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvMmx5ZG1oY2k4djZu", 
+        // Server 2: https://playmogo.com/e/k1d0c4luvy4gjy1raws0llcxg6fleare
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9rMWQwYzRsdXZ5NGdqeTlyYXdzMGxsY3hnNmZsZWFyZQ==",
         telegramLink: "https://t.me/your_link",
         showPlayer: true,
         showTelegram: true,
-        dateAdded: "2026-04-17"
-    }
+        dateAdded: "2026-04-19"
+    },
     // 🎬 Add more movies here following the same structure
 ];
 
