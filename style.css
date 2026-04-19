@@ -228,3 +228,40 @@ header {
     .info-sec h1 { font-size: 1.5rem; text-align: center; }
     .glass-card { padding: 15px; }
 }
+.hero-slider {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-content h1 { font-size: 3rem; margin: 10px 0; color: var(--accent); }
+.hero-content p { max-width: 500px; color: #ccc; margin-bottom: 20px; }
+
+.play-now {
+    background: var(--accent);
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.play-now:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--accent); }
+
+@media (max-width: 600px) {
+    .hero-slider { height: 250px; }
+    .hero-content h1 { font-size: 1.5rem; }
+    .hero-content p { font-size: 0.8rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+}
