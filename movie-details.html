@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - CineWave</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="details-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <div class="container">
+        <div class="glass-card main-details">
+            <!-- Movie Poster -->
+            <div class="poster-section animate-left">
+                <img src="https://via.placeholder.com/300x450" id="moviePoster" alt="Poster">
+                <div class="quality-tag">4K Ultra HD</div>
+            </div>
+
+            <!-- Movie Info -->
+            <div class="info-section animate-right">
+                <h1 id="movieTitle">Movie Name</h1>
+                <div class="meta-data">
+                    <span><i class="fas fa-star" style="color: #ffcc00;"></i> <span id="movieRating">8.5</span></span>
+                    <span><i class="fas fa-calendar"></i> 2024</span>
+                    <span><i class="fas fa-clock"></i> 2h 30m</span>
+                </div>
+
+                <div class="genre-tags">
+                    <span class="tag">Action</span>
+                    <span class="tag">Sci-Fi</span>
+                    <span class="tag">Adventure</span>
+                </div>
+
+                <p class="description">
+                    This is a brief description of the movie. It provides an overview of the plot, the main characters, and the setting. Enjoy the high-quality cinematic experience.
+                </p>
+
+                <!-- Download Buttons -->
+                <div class="download-section">
+                    <h3>Download Options</h3>
+                    <div class="btn-group">
+                        <a href="#" class="dl-btn g-720">
+                            <i class="fas fa-download"></i> 720p (1.2 GB)
+                        </a>
+                        <a href="#" class="dl-btn g-1080">
+                            <i class="fas fa-download"></i> 1080p (2.5 GB)
+                        </a>
+                        <a href="#" class="dl-btn g-4k">
+                            <i class="fas fa-download"></i> 4K (10.8 GB)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
