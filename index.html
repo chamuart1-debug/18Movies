@@ -3,26 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineWave - Stream</title>
+    <meta name="description" content="CineWave - Stream the latest movies and shows online for free.">
+    <title>CineWave — Stream Free Movies</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- ===== HEADER ===== -->
     <header>
-        <div class="logo" onclick="location.reload()">Cine<span>Wave</span></div>
+        <div class="logo" onclick="window.location.reload()">
+            Cine<span>Wave</span>
+        </div>
+
         <div class="search-container">
-            <div class="search-bar" id="searchBar">
-                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchMovies()">
+            <!-- Expandable search bar -->
+            <div class="search-wrapper" id="searchBar">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search movies..."
+                    onkeyup="searchMovies()"
+                    autocomplete="off"
+                >
             </div>
-            <i class="fas fa-search search-icon-btn" onclick="toggleSearch()"></i>
-            <div id="suggestions" class="suggestions" style="position: absolute; top: 50px; right: 0; background: #111; z-index: 100;"></div>
+
+            <!-- Search icon toggle -->
+            <button class="search-icon-btn" onclick="toggleSearch()" aria-label="Toggle search">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <!-- Suggestions dropdown -->
+            <div id="suggestions"></div>
         </div>
     </header>
 
-    <!-- ෆිල්ම් පෙන්වන ප්‍රධාන කොටස -->
-    <main id="homeContent"></main>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="homeContent">
+        <!-- Populated by script.js → renderHome() -->
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+    </main>
 
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 <span>CineWave</span>. All rights reserved. For entertainment purposes only.</p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
-    <script>window.onload = renderHome;</script>
+    <script>
+        // Render home on load
+        window.addEventListener('DOMContentLoaded', renderHome);
+    </script>
+
 </body>
 </html>
