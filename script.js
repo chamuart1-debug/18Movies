@@ -1,5 +1,5 @@
 // ============================================================
-// CINEWAVE — script.js  (Clean, error-free, production build)
+// GlassWave — script.js  (Clean, error-free, production build)
 // ============================================================
 
 // --- 1. MOVIES DATABASE ---
@@ -294,7 +294,7 @@ function loadMovieDetails() {
     }
 
     // Page title
-    document.title = `${m.title} - CineWave`;
+    document.title = `${m.title} - GlassWave`;
 
     // Build server buttons HTML if player is shown
     const serverBtnsHTML = m.showPlayer ? `
