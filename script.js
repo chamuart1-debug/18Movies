@@ -1,7 +1,7 @@
 // Sample Data (මෙහි ඔයාගේ ෆිල්ම් විස්තර ඇතුළත් කරන්න)
 const movies = [
-    { title: "Avatar 2", rating: "8.5", img: "https://via.placeholder.com/200x300", category: "Sci-Fi" },
-    { title: "John Wick 4", rating: "9.0", img: "https://via.placeholder.com/200x300", category: "Action" },
+    { title: "Avatar 2", rating: "8.5", img: "https://m.media-amazon.com/images/M/MV5BZDYxY2I1OGMtN2Y4MS00ZmU1LTgyNDAtODA0MzAyYjI0N2Y2XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg", category: "Sci-Fi" },
+    { title: "John Wick 4", rating: "9.0", img: "https://m.media-amazon.com/images/I/81J1DaRKzUL._AC_UF894,1000_QL80_.jpg", category: "Action" },
     { title: "The Nun", rating: "7.2", img: "https://via.placeholder.com/200x300", category: "Horror" },
     { title: "Inception", rating: "8.8", img: "https://via.placeholder.com/200x300", category: "Sci-Fi" },
     { title: "Deadpool", rating: "8.2", img: "https://via.placeholder.com/200x300", category: "Comedy" },
