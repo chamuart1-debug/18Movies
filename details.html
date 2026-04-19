@@ -3,18 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Movie - CineWave</title>
+    <meta name="description" content="Watch and download movies on CineWave.">
+    <title>Watch Movie — CineWave</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- ===== HEADER ===== -->
     <header>
-        <div class="logo" onclick="window.location.href='index.html'">Cine<span>Wave</span></div>
+        <div class="logo" onclick="window.location.href='index.html'">
+            Cine<span>Wave</span>
+        </div>
+
+        <a href="index.html" style="
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            transition: all 0.3s;
+        "
+        onmouseover="this.style.color='var(--accent)'; this.style.borderColor='var(--accent)';"
+        onmouseout="this.style.color='var(--text-muted)'; this.style.borderColor='var(--glass-border)';">
+            <i class="fas fa-home"></i> Home
+        </a>
     </header>
 
-    <div id="detailsContainer"></div>
+    <!-- ===== DETAILS CONTENT ===== -->
+    <div id="detailsContainer">
+        <!-- Loading spinner while JS populates -->
+        <div class="loader-wrapper" style="min-height: 60vh;">
+            <div class="loader"></div>
+        </div>
+    </div>
 
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 <span>CineWave</span>. All rights reserved. For entertainment purposes only.</p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
-    <script>window.onload = loadMovieDetails;</script>
+    <script>
+        window.addEventListener('DOMContentLoaded', loadMovieDetails);
+    </script>
+
 </body>
 </html>
