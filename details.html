@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Details</title>
+    <title>Watch Movie - CineWave</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="fade-in">
+<body style="background: #0f0f1a;">
 
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+    <a href="index.html" style="color:white; text-decoration:none; padding:20px; display:inline-block;">← Back Home</a>
 
-    <div id="movieDetailsContainer">
-        <!-- JS මගින් මේ කොටස ඔටෝමැටික් පුරවනු ලබයි -->
-    </div>
+    <!-- මෙතනට තමයි script.js එකෙන් තොරතුරු එවන්නේ -->
+    <div id="detailsContainer"></div>
 
     <script src="script.js"></script>
     <script>
+        // පේජ් එක ලෝඩ් වෙද්දී URL එකේ තියෙන ID එක අරන් ෆිල්ම් එක පෙන්නනවා
         window.onload = loadMovieDetails;
     </script>
 </body>
