@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineWave - Movie Download</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Glassmorphism Header -->
+    <header>
+        <div class="logo">Cine<span>Wave</span></div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="සොයන්න (Search)..." onkeyup="searchMovies()">
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+    </header>
+
+    <!-- Scrolling Categories -->
+    <div class="category-wrapper">
+        <div class="category-container" id="categorySlider">
+            <button class="cat-btn active">All</button>
+            <button class="cat-btn">Action</button>
+            <button class="cat-btn">Sci-Fi</button>
+            <button class="cat-btn">Horror</button>
+            <button class="cat-btn">Comedy</button>
+            <button class="cat-btn">Drama</button>
+            <button class="cat-btn">Sinhala</button>
+            <button class="cat-btn">Tamil</button>
+        </div>
+    </div>
+
+    <!-- Movie Grid -->
+    <main class="movie-grid" id="movieGrid">
+        <!-- Movies will be loaded here via JS -->
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
