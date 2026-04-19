@@ -160,19 +160,30 @@ function loadMovieDetails() {
                 </div>
 
                 <div class="player-section">
-                    <div class="watch-hint">
-                        <p>WATCH VIDEO BELOW</p>
-                        <i class="fas fa-chevron-down animated-arrow"></i>
-                    </div>
+                    <!-- Online Player Section -->
+                    ${m.showPlayer ? `
+                        <div class="watch-hint">
+                            <p>WATCH VIDEO BELOW</p>
+                            <i class="fas fa-chevron-down animated-arrow"></i>
+                        </div>
+                        <div class="modern-player" id="playerArea">
+                            <div id="fakeUI" class="play-overlay">
+                                <button class="glow-play-btn" onclick="handleFakePlayer('${m.server1}')">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                            <div id="realVideo" style="display:none;" class="video-container"></div>
+                        </div>
+                    ` : ''}
 
-                    <div class="modern-player" id="playerArea">
-                        <div id="fakeUI" class="play-overlay">
-                            <button class="glow-play-btn" onclick="handleFakePlayer('${m.server1}')">
-                                <i class="fas fa-play"></i>
+                    <!-- Telegram Button Section (මෙය අලුතින් එක් කරන ලදී) -->
+                    ${m.showTelegram ? `
+                        <div class="tg-section" style="margin-top: 30px;">
+                            <button id="tg-btn" class="telegram-btn" onclick="handleTelegram('${m.telegramLink}')">
+                                <i class="fab fa-telegram"></i> DOWNLOAD VIA TELEGRAM
                             </button>
                         </div>
-                        <div id="realVideo" style="display:none;" class="video-container"></div>
-                    </div>
+                    ` : ''}
                 </div>
             </div>
 
@@ -191,24 +202,20 @@ function loadMovieDetails() {
     `;
 }
 
-function handleFakePlayer(url) {
+// Telegram Click Logic
+let tgAdClicked = false;
+function handleTelegram(link) {
     const AD_URL = "https://omg10.com/4/9975772";
+    const btn = document.getElementById('tg-btn');
     
-    if (adState === 0) {
+    if (!tgAdClicked) {
         window.open(AD_URL, "_blank");
-        adState = 1;
-        const btn = document.querySelector('.glow-play-btn');
-        if(btn) btn.innerHTML = "<i class='fas fa-server'></i> LOAD SERVERS";
-    } else if (adState === 1) {
-        window.open(AD_URL, "_blank");
-        adState = 2;
-        const decoded = atob(url);
-        const fakeUI = document.getElementById('fakeUI');
-        const v = document.getElementById('realVideo');
-        if(fakeUI) fakeUI.style.display = 'none';
-        if(v) {
-            v.style.display = 'block';
-            v.innerHTML = `<iframe src="${decoded}" frameborder="0" allowfullscreen></iframe>`;
+        tgAdClicked = true;
+        if(btn) {
+            btn.style.background = "#4CAF50"; // පාට වෙනස් කිරීම
+            btn.innerHTML = "<i class='fas fa-check-circle'></i> CLICK AGAIN TO DOWNLOAD";
         }
+    } else {
+        window.location.href = link;
     }
 }
