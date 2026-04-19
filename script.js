@@ -37,7 +37,7 @@ const movies = [
         server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9rMWQwYzRsdXZ5NGdqeTlyYXdzMGxsY3hnNmZsZWFyZQ==",
         telegramLink: "https://t.me/your_link",
         showPlayer: true,
-        showTelegram: true,
+        showTelegram: false,
         dateAdded: "2026-04-19"
     },
     // 🎬 Add more movies here following the same structure
