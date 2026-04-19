@@ -98,6 +98,29 @@ function loadMovieDetails() {
     }
 }
 
+function loadRelatedMovies(currentCategory, currentId) {
+    const related = movies.filter(m => m.category === currentCategory && m.id !== currentId).slice(0, 4);
+    if (related.length === 0) return "";
+
+    return `
+        <div class="related-section">
+            <h2 style="margin: 20px 0;">You Might Also Like</h2>
+            <div class="movie-grid">
+                ${related.map(m => `
+                    <div class="movie-card" onclick="window.location.href='details.html?id=${m.id}'">
+                        <div class="rating"><i class="fas fa-star"></i> ${m.rating}</div>
+                        <img src="${m.img}">
+                        <div class="movie-info">${m.title}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// loadMovieDetails function එකේ container.innerHTML අගට මේක එකතු කරන්න:
+// container.innerHTML += loadRelatedMovies(m.category, m.id);
+
 // --- 4. Decoding & Streaming Logic ---
 function startStream() {
     window.open("https://omg10.com/4/9975772", "_blank"); // Ad Link
