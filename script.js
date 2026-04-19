@@ -79,6 +79,26 @@ const movies = [
         showTelegram: false,
         dateAdded: "2026-04-19"
     },
+
+    {
+        id: "irresistible-beauties-13",
+        title: "Irresistible Beauties 13 (2026)",
+        rating: "6.6",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2026-04/thumbs/irresistible-beauties-13.webp",
+        category: "Couples",
+        duration: "02:44:57",
+        casting: "Joe Di Marco, Rossa Vaxx, Una Fairy, Leo Santos, Hailey White, Marco Bull, Nata Gold, Nikoletta Queen",
+        description: "If Hailey White, Nata Gold, Nikoletta Queen, Rossa Vaxx, and Una Fairy have one thing in common, it's their irresistible beauty. Blonde or brunette, each in their own way, but all spectacular. Nata Gold plays hard to get, but in the end, if her prince charming is patient and persistent, he'll get his reward. sex addicts proving their wild nature in Irresistible Beauties #13.",
+        // Server 1: https://hgcloud.to/e/vwauaq6yy7eb
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvdndhdWFxNnl5N2Vi",
+        // Server 2: https://playmogo.com/e/1nh40bhvpgn1
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS8xbmg0MGJodnBnbjE=",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-19"
+    },
     // 🎬 Add more movies here following the same structure
 ];
 
