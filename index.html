@@ -8,12 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <header>
-        <div class="logo" onclick="window.location.href='index.html'">Cine<span>Wave</span></div>
+        <div class="logo">Cine<span>Wave</span></div>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search movies..." onkeyup="searchMovies()">
-            <div id="suggestions" class="suggestions"></div>
+            <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchMovies()">
         </div>
     </header>
 
@@ -21,10 +19,8 @@
         <div class="category-container" id="categorySlider">
             <button class="cat-btn active" onclick="filterMovies('All')">All</button>
             <button class="cat-btn" onclick="filterMovies('Action')">Action</button>
-            <button class="cat-btn" onclick="filterMovies('Horror')">Horror</button>
             <button class="cat-btn" onclick="filterMovies('Sci-Fi')">Sci-Fi</button>
-            <button class="cat-btn" onclick="filterMovies('Comedy')">Comedy</button>
-            <button class="cat-btn" onclick="filterMovies('Sinhala')">Sinhala</button>
+            <!-- තව ඕන තරම් බටන් දාන්න -->
         </div>
     </div>
 
@@ -32,7 +28,7 @@
 
     <script src="script.js"></script>
     <script>
-        // හෝම් පේජ් එක ලෝඩ් වෙද්දී ෆිල්ම් පෙන්වන්න
+        // පේජ් එක ලෝඩ් උන ගමන් ෆිල්ම් පෙන්වන්න
         window.onload = () => displayMovies(movies);
     </script>
 </body>
