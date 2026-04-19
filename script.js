@@ -1,11 +1,35 @@
 const movies = [
-    { id: 1, title: "Avatar 2", rating: "8.5", img: "https://m.media-amazon.com/images/M/MV5BZDYxY2I1OGMtN2Y4MS00ZmU1LTgyNDAtODA0MzAyYjI0N2Y2XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg", category: "Sci-Fi", link: "avatar-2-download.html" },
-    { id: 2, title: "John Wick 4", rating: "9.0", img: "https://m.media-amazon.com/images/I/81J1DaRKzUL._AC_UF894,1000_QL80_.jpg", category: "Action", link: "john-wick-4.html" },
-    { id: 3, title: "The Nun", rating: "7.2", img: "https://via.placeholder.com/200x300", category: "Horror", link: "the-nun.html" },
-    { id: 4, title: "Inception", rating: "8.8", img: "https://via.placeholder.com/200x300", category: "Sci-Fi", link: "inception.html" },
-    { id: 5, title: "Deadpool", rating: "8.2", img: "https://via.placeholder.com/200x300", category: "Comedy", link: "deadpool.html" },
-    { id: 6, title: "Interstellar", rating: "9.2", img: "https://via.placeholder.com/200x300", category: "Sci-Fi", link: "interstellar.html" },
+    {
+        id: "maison-close",
+        title: "Maison Close",
+        rating: "5.5",
+        img: "https://film-adult.com/uploads/posts/2026-04/thumbs/maison-close.webp",
+        category: "Action",
+        adult: true,
+        duration: "02:42:18",
+        casting: "Charlie Forde, Lilly Bell, Lulu Chu, Nathan Bronson",
+        description: "Eliza and Nathan maintain a relationship that is both sexually intense and very particular in its structure...",
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2Uvb21hNDE2a3A3cXU0", // Base64 Encoded Link
+        server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy"
+    },
+    // තව ෆිල්ම් මේ වගේම එකතු කරන්න...
 ];
+
+// index.html හි පෝස්ටර් ක්ලික් කරාම මේ ෆන්ක්ෂන් එක වැඩ කරයි
+function goToMovie(id) {
+    window.location.href = `movie-details.html?id=${id}`;
+}
+
+// Home පේජ් එකේ Display function එක පොඩ්ඩක් වෙනස් කරන්න
+function displayMovies(data) {
+    movieGrid.innerHTML = data.map(movie => `
+        <div class="movie-card" onclick="goToMovie('${movie.id}')">
+            <div class="rating"><i class="fas fa-star"></i> ${movie.rating}</div>
+            <img src="${movie.img}" alt="${movie.title}">
+            <div class="movie-info">${movie.title}</div>
+        </div>
+    `).join('');
+}
 
 const movieGrid = document.getElementById('movieGrid');
 
