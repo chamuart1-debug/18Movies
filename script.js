@@ -1,3 +1,4 @@
+// --- 1. මූවි ඩේටාබේස් එක (මෙතනට අලුත් ඒවා දාන්න) ---
 const movies = [
     {
         id: "maison-close",
@@ -7,112 +8,90 @@ const movies = [
         category: "Action",
         adult: true,
         duration: "02:42:18",
-        casting: "Charlie Forde, Lilly Bell, Lulu Chu, Nathan Bronson",
-        description: "Eliza and Nathan maintain a relationship that is both sexually intense and very particular in its structure...",
-        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2Uvb21hNDE2a3A3cXU0", // Base64 Encoded Link
+        casting: "Charlie Forde, Lulu Chu, Nathan Bronson",
+        description: "Eliza and Nathan maintain a relationship that is both sexually intense and very particular in its structure.",
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2Uvb21hNDE2a3A3cXU0",
         server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy"
     },
-    // තව ෆිල්ම් මේ වගේම එකතු කරන්න...
+    {
+        id: "avatar-2",
+        title: "Avatar: The Way of Water",
+        rating: "8.5",
+        img: "https://m.media-amazon.com/images/M/MV5BZDYxY2I1OGMtN2Y4MS00ZmU1LTgyNDAtODA0MzAyYjI0N2Y2XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+        category: "Sci-Fi",
+        adult: false,
+        duration: "03:12:00",
+        casting: "Sam Worthington, Zoe Saldana",
+        description: "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora.",
+        server1: "YUhSMGNITTZMeTloWjJOc2IzVmthRzV2TG1SdmN3PT0=",
+        server2: "YUhSMGNITTZMeTloWjJOc2IzVmthRzV2TG1SdmN3PT0="
+    }
 ];
 
-// index.html හි පෝස්ටර් ක්ලික් කරාම මේ ෆන්ක්ෂන් එක වැඩ කරයි
-function goToMovie(id) {
-    window.location.href = `movie-details.html?id=${id}`;
-}
-
-// Home පේජ් එකේ Display function එක පොඩ්ඩක් වෙනස් කරන්න
+// --- 2. හෝම් පේජ් ලොජික් ---
 function displayMovies(data) {
-    movieGrid.innerHTML = data.map(movie => `
-        <div class="movie-card" onclick="goToMovie('${movie.id}')">
-            <div class="rating"><i class="fas fa-star"></i> ${movie.rating}</div>
-            <img src="${movie.img}" alt="${movie.title}">
-            <div class="movie-info">${movie.title}</div>
+    const grid = document.getElementById('movieGrid');
+    if(!grid) return;
+    grid.innerHTML = data.map(m => `
+        <div class="movie-card" onclick="location.href='details.html?id=${m.id}'">
+            <div class="rating"><i class="fas fa-star"></i> ${m.rating}</div>
+            <img src="${m.img}">
+            <div class="movie-info">${m.title}</div>
         </div>
     `).join('');
 }
 
-const movieGrid = document.getElementById('movieGrid');
-
-// ෆිල්ම් ප්‍රදර්ශනය කිරීමේ ෆන්ක්ෂන් එක
-function displayMovies(data) {
-    movieGrid.innerHTML = data.map(movie => `
-        <div class="movie-card" onclick="goToMovie('${movie.link}')">
-            <div class="rating"><i class="fas fa-star"></i> ${movie.rating}</div>
-            <img src="${movie.img}" alt="${movie.title}">
-            <div class="movie-info">${movie.title}</div>
-        </div>
-    `).join('');
-}
-
-// ෆිල්ම් එක ක්ලික් කරාම අදාළ පේජ් එකට යෑම
-function goToMovie(url) {
-    window.location.href = url;
-}
-
-// කැටගරි අනුව ෆිල්ටර් කිරීම
-function filterMovies(category) {
-    // ඇනිමේෂන් එක නවත්වන්න
-    document.getElementById('categorySlider').style.animation = 'none';
-    
-    if (category === 'All') {
-        displayMovies(movies);
-    } else {
-        const filtered = movies.filter(m => m.category === category);
-        displayMovies(filtered);
-    }
-
-    // Active Button එකේ පාට වෙනස් කරන්න
-    const buttons = document.querySelectorAll('.cat-btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-        if(btn.innerText === category) btn.classList.add('active');
-    });
-}
-
-
-// Search Logic
 function searchMovies() {
-    const term = searchInput.value.toLowerCase();
+    const term = document.getElementById('searchInput').value.toLowerCase();
     const filtered = movies.filter(m => m.title.toLowerCase().includes(term));
-    
-    if(term.length > 0) {
-        suggestionsBox.innerHTML = filtered.map(m => `
-            <div class="suggestion-item" onclick="selectMovie('${m.title}')">${m.title}</div>
-        `).join('');
-    } else {
-        suggestionsBox.innerHTML = '';
-    }
     displayMovies(filtered);
 }
 
-function selectMovie(name) {
-    searchInput.value = name;
-    suggestionsBox.innerHTML = '';
-    searchMovies();
+function filterMovies(cat) {
+    const filtered = cat === 'All' ? movies : movies.filter(m => m.category === cat);
+    displayMovies(filtered);
+    // Active button color
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.innerText === cat));
 }
 
-// Horizontal Swipe for Categories
-const slider = document.getElementById('categorySlider');
-let isDown = false;
-let startX;
-let scrollLeft;
+// --- 3. ඩීටේල් පේජ් ලොජික් (ඔටෝමැටික් හැදෙන කොටස) ---
+function loadMovieDetails() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const m = movies.find(movie => movie.id === id);
+    const container = document.getElementById('movieDetailsContainer');
 
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.style.animation = 'none'; // Stop auto-scroll on click
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
+    if (m) {
+        container.innerHTML = `
+            <div class="movie-post-wrapper">
+                <div class="glass-card">
+                    <div style="display:flex; flex-wrap:wrap; gap:20px;">
+                        <img src="${m.img}" style="width:200px; border-radius:12px;">
+                        <div style="flex:1; min-width:250px;">
+                            <h1>${m.title} ${m.adult ? '<span style="color:red; font-size:0.6em;">🔞</span>' : ''}</h1>
+                            <p><strong>Duration:</strong> ${m.duration}</p>
+                            <p><strong>Rating:</strong> ⭐ ${m.rating}</p>
+                            <p><strong>Casting:</strong> ${m.casting}</p>
+                            <p><strong>Story:</strong> ${m.description}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align:center; margin:30px 0;">
+                        <p>Watch Below</p>
+                        <div class="player-box" style="background:#000; height:300px; display:flex; align-items:center; justify-content:center; border-radius:12px;">
+                            <button onclick="handlePlay('${m.server1}')" style="padding:15px 30px; border-radius:50px; cursor:pointer; background:red; color:white; border:none;">PLAY MOVIE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
 
-slider.addEventListener('mouseleave', () => isDown = false);
-slider.addEventListener('mouseup', () => isDown = false);
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
-});
-
-// Initial Display
-displayMovies(movies);
+function handlePlay(link) {
+    window.open("https://omg10.com/4/9975772", "_blank"); // Ad link
+    setTimeout(() => {
+        alert("සර්වර් එක ලෝඩ් වෙමින් පවතී... (මෙහි වීඩියෝ ප්ලේයර් එක එනු ඇත)");
+        // වීඩියෝ ප්ලේයර් එක මෙතනට දාන්න පුළුවන්
+    }, 1000);
+}
