@@ -153,3 +153,18 @@ header {
     .movie-info { font-size: 0.7rem; }
     .search-box { width: 60%; }
 }
+
+.movie-card {
+    cursor: pointer; /* අතක සලකුණ පෙන්වීමට */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.movie-card:active {
+    transform: scale(0.95); /* ක්ලික් කරන වෙලාවට පොඩ්ඩක් ඇතුලට එබෙන animation එක */
+}
+
+/* කැටගරි බටන් වලට cursor එක */
+.cat-btn {
+    cursor: pointer;
+    user-select: none;
+}
