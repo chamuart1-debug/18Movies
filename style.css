@@ -1,95 +1,134 @@
-:root {
-    --accent: #00d4ff;
-    --glass: rgba(255, 255, 255, 0.08);
-    --border: rgba(255, 255, 255, 0.1);
-    --bg: #0a0a0b;
+/* Highlights & Modern Elements */
+.movie-post-wrapper {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
 }
 
-body {
-    background: var(--bg);
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    overflow-x: hidden;
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-/* Header */
-header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000;
-}
-.logo { font-size: 1.5rem; font-weight: bold; cursor: pointer; }
-.logo span { color: var(--accent); }
-
-/* Search */
-.search-box { position: relative; width: 40%; }
-.search-box input {
-    width: 100%; padding: 10px; border-radius: 20px; border: 1px solid var(--border);
-    background: var(--glass); color: white; outline: none;
-}
-.suggestions {
-    position: absolute; top: 45px; width: 100%; background: #111;
-    border-radius: 10px; overflow: hidden; z-index: 10;
-}
-.suggestion-item { padding: 10px; border-bottom: 1px solid #222; cursor: pointer; }
-
-/* Categories */
-.category-wrapper { overflow: hidden; padding: 20px 0; }
-.category-container {
-    display: flex; gap: 15px; animation: marquee 25s linear infinite; width: max-content;
-}
-.category-container:hover { animation-play-state: paused; }
-@keyframes marquee {
-    0% { transform: translateX(50vw); }
-    100% { transform: translateX(-100%); }
-}
-.cat-btn {
-    background: var(--glass); color: white; border: 1px solid var(--border);
-    padding: 8px 20px; border-radius: 20px; cursor: pointer; white-space: nowrap;
-}
-.cat-btn.active { background: var(--accent); color: black; }
-
-/* Movie Grid */
-.movie-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px; padding: 20px;
+.movie-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-.movie-card {
-    position: relative; border-radius: 12px; overflow: hidden;
-    background: var(--glass); border: 1px solid var(--border); cursor: pointer;
+.poster-container {
+    position: relative;
+    width: 220px;
+}
+
+.movie-poster {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.quality-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: #e50914;
+    font-size: 10px; font-weight: bold;
+    padding: 4px 8px; border-radius: 4px;
+}
+
+/* Highlighted Info Boxes */
+.meta-highlight-box {
+    background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent);
+    border-left: 4px solid var(--accent);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.meta-item {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+.meta-item i { color: var(--accent); width: 25px; }
+
+.story-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    border-bottom: 2px solid rgba(255,255,255,0.05);
+}
+
+.story-box h3 { font-size: 1rem; margin-bottom: 10px; color: var(--accent); }
+
+/* Modern Player Design */
+.modern-player {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: radial-gradient(circle, #222, #000);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.glow-play-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
     transition: 0.3s;
 }
-.movie-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-.movie-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
-.rating {
-    position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.8);
-    color: #ffcc00; padding: 4px 7px; border-radius: 5px; font-size: 0.8rem;
-}
-.movie-info { padding: 10px; text-align: center; font-size: 0.9rem; font-weight: bold; }
 
-/* Mobile: 6 Movies (3 Columns) */
-@media (max-width: 600px) {
-    .movie-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px; }
-    .movie-info { font-size: 0.7rem; }
-    .search-box { width: 60%; }
+.glow-play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.8);
 }
 
-/* Details Page Styles */
-.fade-in { animation: fadeIn 0.8s ease-in; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.back-btn {
-    display: inline-block; margin: 20px; color: white; text-decoration: none;
-    background: var(--glass); padding: 10px 20px; border-radius: 20px;
+.server-step {
+    display: flex;
+    gap: 20px;
 }
 
-/* Movie Post Template CSS (මෙහි ඔබ දුන් CSS කොටස ඇතුලත් වේ) */
-.movie-post-wrapper { padding: 15px; max-width: 900px; margin: auto; }
-.glass-card { 
-    background: rgba(255,255,255,0.05); backdrop-filter: blur(15px);
-    border-radius: 20px; border: 1px solid var(--border); padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.srv-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
 }
-/* ... අනෙක් සියලුම CSS විස්තර පේජ් එකට අදාළව මෙහි ඇත ... */
+
+.srv-btn:hover {
+    background: var(--accent);
+    color: black;
+    border-color: var(--accent);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 650px) {
+    .movie-content { justify-content: center; }
+    .info-sec h1 { font-size: 1.5rem; text-align: center; }
+    .glass-card { padding: 15px; }
+}
