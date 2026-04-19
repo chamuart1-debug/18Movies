@@ -9,33 +9,20 @@
 </head>
 <body>
     <header>
-        <div class="logo" onclick="window.location.href='index.html'">Cine<span>Wave</span></div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search movies..." onkeyup="searchMovies()">
-            <div id="suggestions" class="suggestions"></div>
+        <div class="logo" onclick="location.reload()">Cine<span>Wave</span></div>
+        <div class="search-container">
+            <div class="search-bar" id="searchBar">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchMovies()">
+            </div>
+            <i class="fas fa-search search-icon-btn" onclick="toggleSearch()"></i>
+            <div id="suggestions" class="suggestions" style="position: absolute; top: 50px; right: 0; background: #111; z-index: 100;"></div>
         </div>
     </header>
 
-    <div class="category-wrapper" style="text-align: center; padding: 20px;">
-        <button class="cat-btn active" onclick="filterMovies('All')">All</button>
-        <button class="cat-btn" onclick="filterMovies('Action')">Action</button>
-        <button class="cat-btn" onclick="filterMovies('Sci-Fi')">Sci-Fi</button>
-    </div>
-
-    <main class="movie-grid" id="movieGrid"></main>
+    <!-- ෆිල්ම් පෙන්වන ප්‍රධාන කොටස -->
+    <main id="homeContent"></main>
 
     <script src="script.js"></script>
-    <script>
-        window.onload = () => {
-            const params = new URLSearchParams(window.location.search);
-            const cat = params.get('cat');
-            if(cat) {
-                const filtered = movies.filter(m => m.category === cat);
-                displayMovies(filtered);
-            } else {
-                displayMovies(movies);
-            }
-        };
-    </script>
+    <script>window.onload = renderHome;</script>
 </body>
 </html>
