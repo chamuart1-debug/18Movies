@@ -8,7 +8,7 @@ const movies = [
         id: "maison-close",
         title: "Maison Close (2024)",
         rating: "9.0",
-        quality: "WEB",
+        quality: "720",
         img: "https://film-adult.com/uploads/posts/2026-04/thumbs/maison-close.webp",
         category: "Action",
         duration: "02:42:18",
@@ -25,7 +25,7 @@ const movies = [
         id: "40-years-old-wife",
         title: "40 years old, My Wife With no Panties (2017)",
         rating: "7.6",
-        quality: "FHD 1080p",
+        quality: "FHD",
         img: "https://film-adult.com/uploads/posts/2019-09/1568362060_40-years-old-my-wife-with-no-panties.webp",
         category: "Russian Porn",
         duration: "01:53:22",
@@ -35,6 +35,45 @@ const movies = [
         server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvMmx5ZG1oY2k4djZu", 
         // Server 2: https://playmogo.com/e/k1d0c4luvy4gjy1raws0llcxg6fleare
         server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9rMWQwYzRsdXZ5NGdqeTlyYXdzMGxsY3hnNmZsZWFyZQ==",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-19"
+    },
+    {
+        id: "body-heat-2010",
+        title: "Body Heat (2010)",
+        rating: "7.4",
+        quality: "FHD",
+        img: "https://film-adult.com/uploads/posts/2021-03/1615621355_body-heat.webp",
+        category: "All Sex",
+        duration: "02:19:17",
+        casting: "Ben English, Bridgette B, Jesse Jane, Katsuni, Kayden Kross, Manuel Ferrara, Mick Blue, Raven Alexis, Riley Steele, Scott Nails, Tommy Gunn",
+        description: "Fire has never been so hot since these sexy firefighters took over the station. Dangerous explosions, life or death situations, and powerful desire makes everyone live for the moment. For the first time ever, Digital Playground contract stars Jesse Jane and Kayden Kross sizzle together as a dynamic duo burning up the screen with scorching passion. Riley Steele, Raven Alexis and Katsuni help fuel the flames in an epic orgy atop a fire engine that will make your temperature soar.",
+        // Server 1: https://hgcloud.to/e/vsj7cqe8n5li
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvdnNqN2NxZThuNWxp",
+        // Server 2: https://playmogo.com/e/65nqpw7q0w2cqk94dwsy8r6nzakxfud5
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS82NW5xcHc3cTB3MmNxazlkd3N5OHI2bnpha3hmdWQ1",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-19"
+    },
+    
+    {
+        id: "horny-hotwife-11",
+        title: "Horny Hotwife 11 (2026)",
+        rating: "10",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2026-04/thumbs/horny-hotwife-11.webp",
+        category: "Hotwife",
+        duration: "02:02:34",
+        casting: "Addis Fouche, Alexa Chains, Cherry Candle, Jennifer White, Charles Dera, Danny Mountain, Isiah Maxwell, Van Wylde",
+        description: "Sexy, swinging wifies get set up with new dick by their loving hubbies in 'Horny Hotwife 11'! Director Sid Knox presents four new stories of nonmonogamous nookie that leaves everyone more than satisfied. Cherry Candle's cop husband introduces her to the tallest leprechaun she's ever met. Addis Fouche rides Isiah Maxwell into the sunset.",
+        // Server 1: https://hgcloud.to/e/9fmn5k0t8s2d
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvOWZtbjVrMHQ4czJk",
+        // Server 2: https://playmogo.com/e/qir7n781fn5o
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9xaXI3bjc4MWZuNW8=",
         telegramLink: "https://t.me/your_link",
         showPlayer: true,
         showTelegram: false,
