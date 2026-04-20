@@ -160,6 +160,149 @@ const movies = [
         showTelegram: false,
         dateAdded: "2026-04-20"
     },
+
+	{
+        id: "lessons-for-lovers-2023",
+        title: "Lessons For Lovers (2023)",
+        rating: "5.0",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2023-01/thumbs/lessons-for-lovers.webp",
+        category: "All Sex",
+        duration: "01:58:48",
+        casting: "Eliza Ibarra, Bella Rolland, April Olsen, Freya Parker, Charlotte Sins, Chad Alva, Nathan Bronson, Charlie Valentine, Amaziing",
+        description: "Live, Love & Learn! Lessons For Lovers brings together a massive cast including Eliza Ibarra and Bella Rolland for an unforgettable experience directed by Ernest Greene.",
+        // Server 1: https://s2.filmcdn.top/e/eGRJMWRmVnVvamsza0d3U1JtTDlJZz09
+        server1: "aHR0cHM6Ly9zMi5maWxtY2RuLnRvcC9lL2VHUkpNMWRmVnVvamsza0d3U1JtTDlJZz09",
+        server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy", // Default Ad/Placeholder Server
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "bedroom-eyes-1997",
+        title: "Bedroom Eyes (1997)",
+        rating: "7.9",
+        quality: "FHD 1080p",
+        img: "https://film-adult.com/uploads/posts/2019-05/1558121175_c3ce4ccaf84.webp",
+
+        category: "Anal",
+        duration: "01:39:41",
+        casting: "Carolyn Monroe, Mary Eleniak, Offilia, Regina, Gloria Green, Nora Forter, Alex Mantegna, Andrew Youngman, Brandon T., John Walton, Rodolphe Antrim",
+        description: "Beautiful scenery and excellent quality of the film surpass only the sexual perfection of the women represented. No frills, extra plots. Just beautifully shot, well-set sex scenes, convincingly played by stunning looking girls.",
+        // Server 1: https://hgcloud.to/e/1g6qcisnyht8
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvMWc2cWNpc255aHQ4",
+        // Server 2: https://playmogo.com/e/fgsoi1dvxmczzanhvnx0pntmugjkzqu0
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9mZ3NvaTFkdnhtY3p6YW5odm54MHBudG11Z2prenp1MA==",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "romanian-romance-2020",
+        title: "Romanian Romance (2020)",
+        rating: "7.3",
+        quality: "FHD 1080p",
+        img: "https://film-adult.com/uploads/posts/2020-04/1588103336_b4c3a.webp",
+        category: "Russian Porn",
+        duration: "01:45:45",
+        casting: "Ginger Devil, Rose, Cherry Kiss, Lulu Love",
+        description: "It’s time for some Bucharest nights and there’s no better place to experience it than Private Gold, Romanian Romance. Meet the spectacular MILF Ginger Devil, tour guide Cherry Kiss, and other beauties in a journey through the city's most passionate encounters.",
+        // Server 1: https://s2.filmcdn.top/e/OFRYS3VCY1Z1Mm1Eb1VjbXp6SmxQZz09
+        server1: "aHR0cHM6Ly9zMi5maWxtY2RuLnRvcC9lL09GUllTM1ZDWTValidtRWm9VY216ekpsUGc9PQ==",
+        server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy", // Default Ad/Placeholder Server
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "paris-by-night-2021",
+        title: "Private Specials: Paris by Night (2021)",
+        rating: "7.1",
+        quality: "FHD 1080p",
+        img: "https://film-adult.com/uploads/posts/2021-04/1619787673_paris-by-night-1080.webp",
+        category: "Private",
+        duration: "02:06:57",
+        casting: "Rachel Adjani, Polly Pons, Lina Luxa, Lauren Walker, Zarah Star",
+        description: "Beautiful by day, seductive by night, Paris is the city that never sleeps. Explore the sexiest stories of the city of love, from Rachel Adjani's wild night in Pigalle to Zarah Star's passionate encounters in love hotels.",
+        // Server 1: https://s2.filmcdn.top/e/Snd0Mm1COG82SzlvVU5WRDVIQnZjUT09
+        server1: "aHR0cHM6Ly9zMi5maWxtY2RuLnRvcC9lL1NuZDAybT態度OG82SzlvVU5WRDVIQnZjUT09",
+        server2: "aHR0cHM6Ly9vbWcxMC5jb20vNC85OTc1Nzcy", // Default Ad/Placeholder
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "cleaning-ladies-get-dirty-2026",
+        title: "Cleaning Ladies Get Dirty (2026)",
+        rating: "6.6",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2026-03/thumbs/cleaning-ladies-get-dirty.webp",
+        
+        category: "All Sex",
+        duration: "01:30:18",
+        casting: "Tanya Virago, Mackenzie Page, Brendan Raven, Sweet Mery, Lucas Hellminaar, Jonny Oblong",
+        description: "Discover a new trend in cleaning: a premium service that goes beyond basic cleaning. These fun and charming housekeepers show how to turn every corner of the home into a pleasant and attractive place.",
+        // Server 1: https://hgcloud.to/e/2hpurk13p8hf
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvMmhwdXJrMTNwOGhm",
+        // Server 2: https://playmogo.com/e/exqzydv12hos
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9leHF6eWR2MTJob3M=",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "me-my-wife-and-another-man-2026",
+        title: "Me, My Wife, And Another Man (2026)",
+        rating: "6",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2026-03/thumbs/me-my-wife-and-another-man.webp",
+
+        category: "Anal",
+        duration: "02:37:37",
+        casting: "Lexi Lore, Romi Rain, Taylor Wild, Tiny Khloe, Alex Legend, Damon Dice, Dante Colle, Ken Feels, Milan Ponjevic, Nathan Bronson, Nick Strokes, Will Pounder",
+        description: "Two is better than one when it comes to a horny hotwife. Two men sharing one sexy woman. What was once a fantasy is now a reality as your once timid wife gives in to her ultimate fantasy of being shared with her husband and another man.",
+        // Server 1: https://hgcloud.to/e/n6mc92jm14e4
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvbjZtYzkyam0xNGU0",
+        // Server 2: https://playmogo.com/e/3lcx85cuuiyy
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS8zbGN4ODVjdXVpeXk=",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "please-fuck-my-wife-2026",
+        title: "Please Fuck My Wife (2026)",
+        rating: "6.7",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2026-03/please-fuck-my-wife.webp",
+        // සියලුම කැටගරි ඇතුළත් කර ඇත
+        category:  "Anal",
+        duration: "02:14:29",
+        casting: "Richard Glaze, Maddie Wren, Ken Feels, Tess Thomson, Lexi Lore, Ryan Driller, Mike Mancini, Blake Blossom",
+        description: "Lexi Lore, Blake Blossom, and newcomers Maddie Wren and Tess Thomson are wives who want more, leading them to establish open relationships. Their husbands are cuckolds who enjoy watching, and the wives love being watched. A story of lies, reality, and ultimate fantasies.",
+        // Server 1: https://s2.filmcdn.top/e/eW5iSlBoVUR5c2JpdmFiMVZ5cE5vdz09
+        server1: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS84bzhzeG9kcm85MW0=",
+        // Server 2: https://hgcloud.to/e/f23kya9mw9gm
+        server2: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvZjIza3lhOW13OWdt",
+        // Server 3 (Extra): https://playmogo.com/e/8o8sxodro91m
+        server3: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS84bzhzeG9kcm85MW0=",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
     // 🎬 Add more movies here following the same structure
 ];
 
