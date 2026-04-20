@@ -99,6 +99,67 @@ const movies = [
         showTelegram: false,
         dateAdded: "2026-04-19"
     },
+    {
+        id: "fever-times-2026",
+        title: "Fever Times (2026)",
+        rating: "6.2",
+        quality: "FHD 1080p",
+        img: "https://film-adult.com/uploads/posts/2026-04/thumbs/fever-times.webp",
+        
+        category: "All Sex, Appearance, Big Dicks, Big Tits, Blowjobs, Cumshots, Group Sex, International, Lingerie, Oral, Small Tits, Threesomes",
+        duration: "01:37:37",
+        casting: "Alice Berry, Juice Jane, Donny Bunny, Joe Di Marco, Lucas Hellminnaar, Mick Shagger",
+        description: "In a world full of love and freedom, Jane and Lucas follow their hearts, while Joe's mysterious club brings tension and unexpected encounters, including the beautiful Alice. At home, by the piano, Jane feels her heart race when Lucas walks in... This night will change everything.",
+        // Server 1: https://hgcloud.to/e/f0ehuzd8lzbq
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvZjBlaHV6ZDhsemJx",
+        // Server 2: https://playmogo.com/e/azwtasviwhee
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS9hend0YXN2aXdoZWU=",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	{
+        id: "secretaries-in-heat-4",
+        title: "Secretaries In Heat 4 (2026)",
+        rating: "6.2",
+        quality: "FHD 1080p",
+        img: "https://film-adult.com/uploads/posts/2026-04/thumbs/secretaries-in-heat-4.webp",
+        
+        category: "All Sex, Blowjobs, Lingerie, Oral, Secretaries",
+        duration: "02:29:21",
+        casting: "Alexis James, Blake Blossom, Juliana Marie, Mira Luv, Damon Dice, Danny Mountain, Dante Colle, Milan Ponjevic",
+        description: "She's willing to do whatever she needs to get ahead. Her boss is more than willing to provide that opportunity. When a woman has eyes for the man in charge she just might offer her body as well. Intense sex scenes of insatiable lust are all right here in one sexy package.",
+        // Server 1: https://hgcloud.to/e/5auj9hoy3vfe
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvNWF1ajlob3kzd mZl",
+        // Server 2: https://playmogo.com/e/6j5nd97wzjkt
+        server2: "aHR0cHM6Ly9wbGF5bW9nby5jb20vZS82ajVuZDk3d3pqa3Q=",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
+	
+	{
+        id: "cheerleaders-in-heat-4",
+        title: "Cheerleaders In Heat 4 (2025)",
+        rating: "7.2",
+        quality: "HD 720p",
+        img: "https://film-adult.com/uploads/posts/2025-06/thumbs/cheerleaders-in-heat-4.webp",
+        
+        category: "All Sex, Teens, Big Dicks",
+        duration: "02:12:18",
+        casting: "Cecelia Taylor, Selina Imai, Sky Wonderland, Yumi Sin, GI Joey, Max Fills, Victor Ray, Will Pounder",
+        description: "Looking so sexy in her outfit. She knows she sparks a deep desire. These girls act on that impulse. They know what they are doing as they tempt and excite the men they desire. Is it even possible to resist Cheerleaders in Heat?",
+        // Server 1 (Base64): https://hgcloud.to/e/mmuvdtrr76hr
+        server1: "aHR0cHM6Ly9oZ2Nsb3VkLnRvL2UvbW11dmR0cnI3Nmhy",
+        // Server 2 (Base64): https://s2.filmcdn.top/e/T3NuSUpBUTdMYVJzcEZ5RkxhY2VJQT09
+        server2: "aHR0cHM6Ly9zMi5maWxtY2RuLnRvcC9lL1QzTnVTVVBBVzdMWVJzcEZ5RkxhY2VJQT09",
+        telegramLink: "https://t.me/your_link",
+        showPlayer: true,
+        showTelegram: false,
+        dateAdded: "2026-04-20"
+    },
     // 🎬 Add more movies here following the same structure
 ];
 
